@@ -11,6 +11,10 @@ const doc = {
       url: "http://localhost:3000/api",
       description: "Local Server",
     },
+    {
+      url: "https://sanberbe60-athif.vercel.app/",
+      description: "Production Server",
+    },
   ],
   components: {
     securitySchemes: {
