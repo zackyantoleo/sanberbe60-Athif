@@ -11,7 +11,7 @@
       "description": "Local Server"
     },
     {
-      "url": "https://sanberbe60-athif.vercel.app/",
+      "url": "https://sanberbe60-athif.vercel.app/api",
       "description": "Production Server"
     }
   ],
@@ -107,9 +107,7 @@
     },
     "/products": {
       "get": {
-        "tags": [
-          "Products"
-        ],
+        "tags": ["Products"],
         "description": "",
         "responses": {
           "200": {
@@ -121,9 +119,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Products"
-        ],
+        "tags": ["Products"],
         "description": "",
         "responses": {
           "201": {
@@ -157,9 +153,7 @@
     },
     "/products/{id}": {
       "get": {
-        "tags": [
-          "Products"
-        ],
+        "tags": ["Products"],
         "description": "",
         "parameters": [
           {
@@ -181,9 +175,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Products"
-        ],
+        "tags": ["Products"],
         "description": "",
         "parameters": [
           {
@@ -225,9 +217,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Products"
-        ],
+        "tags": ["Products"],
         "description": "",
         "parameters": [
           {
@@ -256,9 +246,7 @@
     },
     "/auth/login": {
       "post": {
-        "tags": [
-          "Auth"
-        ],
+        "tags": ["Auth"],
         "description": "",
         "responses": {
           "200": {
@@ -287,9 +275,7 @@
     },
     "/auth/register": {
       "post": {
-        "tags": [
-          "Auth"
-        ],
+        "tags": ["Auth"],
         "description": "",
         "responses": {
           "200": {
@@ -318,9 +304,7 @@
     },
     "/auth/me": {
       "post": {
-        "tags": [
-          "Auth"
-        ],
+        "tags": ["Auth"],
         "description": "",
         "responses": {
           "200": {
@@ -342,9 +326,7 @@
     },
     "/auth/update-profile": {
       "put": {
-        "tags": [
-          "Auth"
-        ],
+        "tags": ["Auth"],
         "description": "",
         "responses": {
           "200": {
@@ -381,9 +363,7 @@
     },
     "/upload": {
       "post": {
-        "tags": [
-          "Media"
-        ],
+        "tags": ["Media"],
         "description": "",
         "responses": {
           "200": {
@@ -418,9 +398,7 @@
     },
     "/uploads": {
       "post": {
-        "tags": [
-          "Media"
-        ],
+        "tags": ["Media"],
         "description": "",
         "responses": {
           "200": {
