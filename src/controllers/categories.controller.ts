@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import CategoriesModel from "../models/categories.model";
 
 import {
   create,
@@ -11,6 +10,18 @@ import {
 
 export default {
   async create(req: Request, res: Response) {
+    /**
+    #swagger.tags = ['Categories']
+    #swagger.security = [{
+     "bearerAuth": []
+    }]
+    #swagger.requestBody = {
+     required: true,
+     schema: {
+       $ref: "#/components/schemas/CategoryRequest"
+     }
+    }
+    */
     try {
       const result = await create(req.body);
       res.status(201).json({
@@ -26,6 +37,9 @@ export default {
     }
   },
   async findAll(req: Request, res: Response) {
+    /**
+     #swagger.tags = ['Categories']
+     */
     try {
       const result = await findAll();
       res.status(200).json({
@@ -56,6 +70,18 @@ export default {
     }
   },
   async update(req: Request, res: Response) {
+    /**
+     #swagger.tags = ['Categories']
+     #swagger.security = [{
+      "bearerAuth": []
+     }]
+     #swagger.requestBody = {
+      required: true,
+      schema: {
+        $ref: "#/components/schemas/CategoryRequest"
+      }
+     }
+    */
     try {
       const result = await update(req.params?.id, req.body);
       res.status(200).json({
@@ -71,6 +97,12 @@ export default {
     }
   },
   async delete(req: Request, res: Response) {
+    /**
+     #swagger.tags = ['Categories']
+     #swagger.security = [{
+      "bearerAuth": []
+     }]
+    */
     try {
       const result = await remove(req.params?.id);
 

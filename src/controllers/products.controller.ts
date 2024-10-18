@@ -23,7 +23,7 @@ export default {
      #swagger.requestBody = {
       required: true,
       schema: {
-        $ref: "#/components/schemas/ProductCreateRequest"
+        $ref: "#/components/schemas/ProductsRequest"
       }
      }
      */
@@ -87,7 +87,7 @@ export default {
      #swagger.requestBody = {
       required: true,
       schema: {
-        $ref: "#/components/schemas/ProductCreateRequest"
+        $ref: "#/components/schemas/ProductsRequest"
       }
      }
     */

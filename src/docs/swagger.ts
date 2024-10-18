@@ -3,8 +3,8 @@ import swaggerAutogen from "swagger-autogen";
 const doc = {
   info: {
     version: "v0.0.1",
-    title: "Dokumentasi API BukaToko",
-    description: "Dokumentasi API BukaToko",
+    title: "Final Project Node JS Sanbercode Batch 60",
+    description: "Athif Zakiyanto",
   },
   servers: [
     {
@@ -24,6 +24,29 @@ const doc = {
       },
     },
     schemas: {
+      ProductsRequest: {
+        name: "Kemeja",
+        description: "Kemeja Pria",
+        image: "kemeja.jpg",
+        price: 10000,
+        qty: 10,
+        category: "{id_category}",
+      },
+      CategoryRequest: {
+        name: "Kemeja",
+      },
+      OrderRequest: {
+        grandTotal: 10000,
+        orderItems: [
+          {
+            name: "Kemeja",
+            productId: "{id_product}",
+            price: 10000,
+            quantity: 2,
+          },
+        ],
+        status: "pending",
+      },
       LoginRequest: {
         email: "joni2024@yopmail.com",
         password: "123412341",

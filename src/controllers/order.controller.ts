@@ -5,6 +5,18 @@ import { Types } from "mongoose";
 
 export default {
   async create(req: IRequestWithUser, res: Response) {
+    /**
+     #swagger.tags = ['Orders']
+     #swagger.security = [{
+      "bearerAuth": []
+     }]
+     #swagger.requestBody = {
+      required: true,
+      schema: {
+        $ref: "#/components/schemas/OrderRequest"
+      }
+     }
+     */
     try {
       const userId = req.user?.id;
       if (!userId) {
@@ -34,6 +46,18 @@ export default {
   },
 
   async getUserOrders(req: IRequestWithUser, res: Response) {
+    /**
+     #swagger.tags = ['Orders']
+     #swagger.security = [{
+      "bearerAuth": []
+     }]
+     #swagger.requestBody = {
+      required: true,
+      schema: {
+        $ref: "#/components/schemas/OrderRequest"
+      }
+     }
+     */
     try {
       const userId = req.user?.id;
       if (!userId) {

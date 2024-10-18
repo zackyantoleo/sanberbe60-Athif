@@ -74,14 +74,14 @@ export default {
       const { email, fullName, password, username, confirmPassword, roles } =
         req.body;
 
-      await registerSchema.validate({
-        email,
-        fullName,
-        password,
-        username,
-        confirmPassword,
-        roles,
-      });
+      // await registerSchema.validate({
+      //   email,
+      //   fullName,
+      //   password,
+      //   username,
+      //   confirmPassword,
+      //   roles,
+      // });
 
       const user = await register({
         email,

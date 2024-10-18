@@ -11,13 +11,16 @@
       "description": "Local Server"
     },
     {
-      "url": "https://sanberbe60-athif.vercel.app/api",
+      "url": "https://sanberbe60-athif.vercel.app/",
       "description": "Production Server"
     }
   ],
   "paths": {
     "/categories": {
       "get": {
+        "tags": [
+          "Categories"
+        ],
         "description": "",
         "responses": {
           "200": {
@@ -29,6 +32,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Categories"
+        ],
         "description": "",
         "responses": {
           "201": {
@@ -36,6 +42,26 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoryRequest"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoryRequest"
+              }
+            }
           }
         }
       }
@@ -63,6 +89,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Categories"
+        ],
         "description": "",
         "parameters": [
           {
@@ -80,10 +109,33 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoryRequest"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoryRequest"
+              }
+            }
           }
         }
       },
       "delete": {
+        "tags": [
+          "Categories"
+        ],
         "description": "",
         "parameters": [
           {
@@ -102,12 +154,19 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/products": {
       "get": {
-        "tags": ["Products"],
+        "tags": [
+          "Products"
+        ],
         "description": "",
         "responses": {
           "200": {
@@ -119,7 +178,9 @@
         }
       },
       "post": {
-        "tags": ["Products"],
+        "tags": [
+          "Products"
+        ],
         "description": "",
         "responses": {
           "201": {
@@ -139,12 +200,12 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ProductCreateRequest"
+                "$ref": "#/components/schemas/ProductsRequest"
               }
             },
             "application/xml": {
               "schema": {
-                "$ref": "#/components/schemas/ProductCreateRequest"
+                "$ref": "#/components/schemas/ProductsRequest"
               }
             }
           }
@@ -153,7 +214,9 @@
     },
     "/products/{id}": {
       "get": {
-        "tags": ["Products"],
+        "tags": [
+          "Products"
+        ],
         "description": "",
         "parameters": [
           {
@@ -175,7 +238,9 @@
         }
       },
       "put": {
-        "tags": ["Products"],
+        "tags": [
+          "Products"
+        ],
         "description": "",
         "parameters": [
           {
@@ -205,19 +270,21 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ProductCreateRequest"
+                "$ref": "#/components/schemas/ProductsRequest"
               }
             },
             "application/xml": {
               "schema": {
-                "$ref": "#/components/schemas/ProductCreateRequest"
+                "$ref": "#/components/schemas/ProductsRequest"
               }
             }
           }
         }
       },
       "delete": {
-        "tags": ["Products"],
+        "tags": [
+          "Products"
+        ],
         "description": "",
         "parameters": [
           {
@@ -246,7 +313,9 @@
     },
     "/auth/login": {
       "post": {
-        "tags": ["Auth"],
+        "tags": [
+          "Auth"
+        ],
         "description": "",
         "responses": {
           "200": {
@@ -275,7 +344,9 @@
     },
     "/auth/register": {
       "post": {
-        "tags": ["Auth"],
+        "tags": [
+          "Auth"
+        ],
         "description": "",
         "responses": {
           "200": {
@@ -304,7 +375,9 @@
     },
     "/auth/me": {
       "post": {
-        "tags": ["Auth"],
+        "tags": [
+          "Auth"
+        ],
         "description": "",
         "responses": {
           "200": {
@@ -326,7 +399,9 @@
     },
     "/auth/update-profile": {
       "put": {
-        "tags": ["Auth"],
+        "tags": [
+          "Auth"
+        ],
         "description": "",
         "responses": {
           "200": {
@@ -363,7 +438,9 @@
     },
     "/upload": {
       "post": {
-        "tags": ["Media"],
+        "tags": [
+          "Media"
+        ],
         "description": "",
         "responses": {
           "200": {
@@ -398,7 +475,9 @@
     },
     "/uploads": {
       "post": {
-        "tags": ["Media"],
+        "tags": [
+          "Media"
+        ],
         "description": "",
         "responses": {
           "200": {
@@ -436,6 +515,9 @@
     },
     "/orders": {
       "post": {
+        "tags": [
+          "Orders"
+        ],
         "description": "",
         "responses": {
           "201": {
@@ -450,9 +532,32 @@
           "500": {
             "description": "Internal Server Error"
           }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderRequest"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderRequest"
+              }
+            }
+          }
         }
       },
       "get": {
+        "tags": [
+          "Orders"
+        ],
         "description": "",
         "parameters": [
           {
@@ -483,7 +588,12 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     }
   },
@@ -495,6 +605,90 @@
       }
     },
     "schemas": {
+      "ProductsRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Kemeja"
+          },
+          "description": {
+            "type": "string",
+            "example": "Kemeja Pria"
+          },
+          "image": {
+            "type": "string",
+            "example": "kemeja.jpg"
+          },
+          "price": {
+            "type": "number",
+            "example": 10000
+          },
+          "qty": {
+            "type": "number",
+            "example": 10
+          },
+          "category": {
+            "type": "string",
+            "example": "{id_category}"
+          }
+        },
+        "xml": {
+          "name": "ProductsRequest"
+        }
+      },
+      "CategoryRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Kemeja"
+          }
+        },
+        "xml": {
+          "name": "CategoryRequest"
+        }
+      },
+      "OrderRequest": {
+        "type": "object",
+        "properties": {
+          "grandTotal": {
+            "type": "number",
+            "example": 10000
+          },
+          "orderItems": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Kemeja"
+                },
+                "productId": {
+                  "type": "string",
+                  "example": "{id_product}"
+                },
+                "price": {
+                  "type": "number",
+                  "example": 10000
+                },
+                "quantity": {
+                  "type": "number",
+                  "example": 2
+                }
+              }
+            }
+          },
+          "status": {
+            "type": "string",
+            "example": "pending"
+          }
+        },
+        "xml": {
+          "name": "OrderRequest"
+        }
+      },
       "LoginRequest": {
         "type": "object",
         "properties": {
