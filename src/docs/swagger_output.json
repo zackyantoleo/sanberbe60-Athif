@@ -2,8 +2,8 @@
   "openapi": "3.0.0",
   "info": {
     "version": "v0.0.1",
-    "title": "Dokumentasi API BukaToko",
-    "description": "Dokumentasi API BukaToko"
+    "title": "Final Project Node JS Sanbercode Batch 60",
+    "description": "Athif Zakiyanto"
   },
   "servers": [
     {
@@ -11,7 +11,7 @@
       "description": "Local Server"
     },
     {
-      "url": "https://sanberbe60-athif.vercel.app/",
+      "url": "https://sanberbe60-athif.vercel.app/api",
       "description": "Production Server"
     }
   ],
@@ -593,7 +593,22 @@
           {
             "bearerAuth": []
           }
-        ]
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderRequest"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderRequest"
+              }
+            }
+          }
+        }
       }
     }
   },
