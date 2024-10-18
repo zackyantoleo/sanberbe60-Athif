@@ -9,6 +9,8 @@ import categoriesController from "../controllers/categories.controller";
 
 import orderController from "../controllers/order.controller";
 
+export const maxDuration = 300;
+
 const router = express.Router();
 
 // CRUD Categories
