@@ -1,4 +1,4 @@
-# Final Project Node JS Sanbercode batch 60
+# Final Project Node JS Express - Sanbercode batch 60
 
 Athif Zakiyanto
 

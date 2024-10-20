@@ -3,7 +3,7 @@ import mongoose, { Types } from "mongoose";
 export interface Product {
   name: string;
   description: string;
-  images: string[];
+  // images: string[];
   price: number;
   qty: number;
   categoryId: Types.ObjectId;
@@ -24,10 +24,10 @@ const ProductsSchema = new Schema<Product>(
       type: Schema.Types.String,
       required: true,
     },
-    images: {
-      type: [Schema.Types.String],
-      required: true,
-    },
+    // images: {
+    //   type: [Schema.Types.String],
+    //   required: true,
+    // },
     price: {
       type: Schema.Types.Number,
       required: true,

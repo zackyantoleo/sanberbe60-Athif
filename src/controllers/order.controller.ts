@@ -52,12 +52,6 @@ export default {
      #swagger.security = [{
       "bearerAuth": []
      }]
-     #swagger.requestBody = {
-      required: true,
-      schema: {
-        $ref: "#/components/schemas/OrderRequest"
-      }
-     }
      */
     try {
       const userId = req.user?.id;
