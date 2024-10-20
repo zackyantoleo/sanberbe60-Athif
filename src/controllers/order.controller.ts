@@ -37,10 +37,11 @@ export default {
         message: "Order created successfully",
       });
     } catch (error) {
+      console.error("Order creation error:", error);
       const err = error as Error;
       res.status(500).json({
-        data: err.message,
-        message: "Failed to create order",
+        data: null,
+        message: `Failed to create order: ${err.message}`,
       });
     }
   },

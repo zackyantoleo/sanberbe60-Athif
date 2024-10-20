@@ -1,6 +1,7 @@
 import OrderModel, { Order } from "../models/order.model";
 import ProductsModel from "../models/products.model";
 import { Types } from "mongoose";
+import { sendInvoiceEmail } from "../utils/email";
 
 export const createOrder = async (orderData: Order): Promise<Order> => {
   const session = await OrderModel.startSession();
@@ -9,7 +10,9 @@ export const createOrder = async (orderData: Order): Promise<Order> => {
   try {
     // Validate and update product quantities
     for (const item of orderData.orderItems) {
-      const product = await ProductsModel.findById(item.productId);
+      const product = await ProductsModel.findById(item.productId).session(
+        session
+      );
       if (!product) {
         throw new Error(`Product not found: ${item.productId}`);
       }
@@ -21,19 +24,31 @@ export const createOrder = async (orderData: Order): Promise<Order> => {
       await ProductsModel.findByIdAndUpdate(
         item.productId,
         { $inc: { qty: -item.quantity } },
-        { session }
+        { session, new: true }
       );
     }
 
     // Create the order
     const order = await OrderModel.create([orderData], { session });
 
+    // Commit the transaction
     await session.commitTransaction();
     session.endSession();
 
+    // Send invoice email after the transaction is committed
+    try {
+      await sendInvoiceEmail(order[0]);
+    } catch (emailError) {
+      console.error("Failed to send invoice email:", emailError);
+      // Note: We don't throw here because the order has already been created
+    }
+
     return order[0];
   } catch (error) {
-    await session.abortTransaction();
+    // Only abort if the transaction hasn't been committed
+    if (session.inTransaction()) {
+      await session.abortTransaction();
+    }
     session.endSession();
     throw error;
   }
