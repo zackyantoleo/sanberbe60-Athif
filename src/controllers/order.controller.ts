@@ -34,14 +34,14 @@ export default {
       const result = await createOrder(orderData);
       res.status(201).json({
         data: result,
-        message: "Order created successfully",
+        message: "Order created successfully and invoice sent",
       });
     } catch (error) {
-      console.error("Order creation error:", error);
       const err = error as Error;
+      console.error("Order creation error:", err);
       res.status(500).json({
-        data: null,
-        message: `Failed to create order: ${err.message}`,
+        data: err.message,
+        message: "Failed to create order or send invoice",
       });
     }
   },
